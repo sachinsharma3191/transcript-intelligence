@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="860" viewBox="0 0 1400 860" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#14213D"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="860" fill="#FBFBF8"/>
+  <text x="40" y="52" font-size="28" font-weight="600" fill="#14213D">Transcript Intelligence: architecture</text>
+  <text x="40" y="80" font-size="15" fill="#5B6478">Data flows left to right. Each step in the app reads from the same pipeline state.</text>
+
+  <!-- Docker group -->
+  <rect x="1000" y="120" width="360" height="520" rx="14" fill="none" stroke="#2A9D8F" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="1016" y="146" font-size="14" font-weight="600" fill="#2A9D8F">docker compose</text>
+
+  <!-- Dataset -->
+  <rect x="40" y="170" width="250" height="150" rx="10" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+  <text x="60" y="202" font-size="18" font-weight="600" fill="#14213D">Dataset</text>
+  <text x="60" y="230" font-size="14" fill="#4A5568">dataset/&lt;meeting&gt;/</text>
+  <text x="60" y="252" font-size="14" fill="#4A5568">transcript, summary,</text>
+  <text x="60" y="272" font-size="14" fill="#4A5568">meeting-info, events</text>
+  <text x="60" y="300" font-size="13" fill="#5B6478">100 calls, 4,313 sentences</text>
+
+  <!-- Analysis modules -->
+  <rect x="340" y="150" width="320" height="210" rx="10" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+  <text x="360" y="182" font-size="18" font-weight="600" fill="#14213D">Analysis modules</text>
+  <text x="360" y="212" font-size="14" fill="#4A5568">src/load.py      read, call type, side</text>
+  <text x="360" y="234" font-size="14" fill="#4A5568">src/categorize.py  themes (rules)</text>
+  <text x="360" y="256" font-size="14" fill="#4A5568">src/sentiment.py   VADER, trends</text>
+  <text x="360" y="278" font-size="14" fill="#4A5568">src/insights.py    churn, demand</text>
+  <text x="360" y="300" font-size="14" fill="#4A5568">src/recommendations.py</text>
+  <text x="360" y="342" font-size="13" fill="#5B6478">pure functions, no state</text>
+
+  <!-- pipeline.py -->
+  <rect x="710" y="150" width="250" height="210" rx="10" fill="#E9C46A" fill-opacity="0.25" stroke="#14213D" stroke-width="1.5"/>
+  <text x="730" y="182" font-size="18" font-weight="600" fill="#14213D">pipeline.py</text>
+  <text x="730" y="212" font-size="14" fill="#4A5568">Pipeline (loaded once)</text>
+  <text x="730" y="236" font-size="14" fill="#4A5568">config: themes, weight,</text>
+  <text x="730" y="256" font-size="14" fill="#4A5568">outage date</text>
+  <text x="730" y="280" font-size="14" fill="#4A5568">latest run, changes</text>
+  <text x="730" y="300" font-size="14" fill="#4A5568">action status (memory)</text>
+  <text x="730" y="342" font-size="13" fill="#5B6478">one run = categorize + score</text>
+
+  <!-- api.py -->
+  <rect x="1030" y="160" width="300" height="190" rx="10" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+  <text x="1050" y="192" font-size="18" font-weight="600" fill="#14213D">api.py (FastAPI)</text>
+  <text x="1050" y="220" font-size="14" fill="#4A5568">/api/data, /runs, /config</text>
+  <text x="1050" y="242" font-size="14" fill="#4A5568">/categories, /sentiment</text>
+  <text x="1050" y="264" font-size="14" fill="#4A5568">/insights, /calls</text>
+  <text x="1050" y="286" font-size="14" fill="#4A5568">/recommendations/*</text>
+  <text x="1050" y="318" font-size="13" fill="#5B6478">port 8000 · request logs</text>
+
+  <!-- Next.js -->
+  <rect x="1030" y="420" width="300" height="180" rx="10" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+  <text x="1050" y="452" font-size="18" font-weight="600" fill="#14213D">Next.js UI (frontend/)</text>
+  <text x="1050" y="482" font-size="14" fill="#4A5568">1 Load data   2 Categories</text>
+  <text x="1050" y="504" font-size="14" fill="#4A5568">3 Sentiment  4 Insights</text>
+  <text x="1050" y="526" font-size="14" fill="#4A5568">5 Future roadmap (radio)</text>
+  <text x="1050" y="558" font-size="13" fill="#5B6478">port 3000 · console [ui] logs</text>
+
+  <!-- CLI -->
+  <rect x="340" y="450" width="320" height="110" rx="10" fill="#FFFFFF" stroke="#5B6478" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="360" y="482" font-size="18" font-weight="600" fill="#14213D">run_analysis.py (CLI)</text>
+  <text x="360" y="512" font-size="14" fill="#4A5568">one-off run, writes outputs/</text>
+  <text x="360" y="534" font-size="14" fill="#4A5568">CSV tables and PNG charts</text>
+
+  <!-- Outputs -->
+  <rect x="340" y="610" width="320" height="80" rx="10" fill="#FFFFFF" stroke="#5B6478" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="360" y="644" font-size="18" font-weight="600" fill="#14213D">outputs/</text>
+  <text x="360" y="668" font-size="14" fill="#4A5568">static results, for the deck</text>
+
+  <!-- Arrows -->
+  <line x1="290" y1="245" x2="338" y2="245" stroke="#14213D" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="296" y="234" font-size="12" fill="#5B6478">reads</text>
+
+  <line x1="660" y1="255" x2="708" y2="255" stroke="#14213D" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="664" y="244" font-size="12" fill="#5B6478">calls</text>
+
+  <line x1="960" y1="255" x2="1028" y2="255" stroke="#14213D" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="966" y="244" font-size="12" fill="#5B6478">uses</text>
+
+  <line x1="1180" y1="352" x2="1180" y2="418" stroke="#14213D" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="1200" y1="418" x2="1200" y2="354" stroke="#E76F51" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="1212" y="380" font-size="12" fill="#5B6478">JSON over HTTP</text>
+  <text x="1212" y="396" font-size="12" fill="#5B6478">/api/*</text>
+
+  <line x1="500" y1="360" x2="500" y2="448" stroke="#5B6478" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+  <line x1="500" y1="560" x2="500" y2="608" stroke="#5B6478" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+
+  <!-- Bottom: browser and logging -->
+  <rect x="40" y="740" width="1320" height="80" rx="10" fill="#14213D"/>
+  <text x="64" y="772" font-size="16" font-weight="600" fill="#FBFBF8">Logging</text>
+  <text x="64" y="798" font-size="14" fill="#BFD8D5">Backend: request, run and config lines (LOG_LEVEL) · Frontend: API calls and actions in the browser console (NEXT_PUBLIC_LOG_LEVEL)</text>
+
+  <rect x="40" y="420" width="250" height="180" rx="10" fill="none" stroke="#5B6478" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="60" y="452" font-size="16" font-weight="600" fill="#14213D">Browser</text>
+  <text x="60" y="482" font-size="14" fill="#4A5568">Opens the UI at :3000.</text>
+  <text x="60" y="504" font-size="14" fill="#4A5568">Calls the API directly,</text>
+  <text x="60" y="526" font-size="14" fill="#4A5568">URL baked in at build.</text>
+</svg>
