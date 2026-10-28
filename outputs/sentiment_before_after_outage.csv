@@ -1,0 +1,7 @@
+call_type,period,meetings,sentiment
+external,after outage,28,3.42
+external,before outage,15,4.25
+internal,after outage,21,3.26
+internal,before outage,9,3.8
+support,after outage,17,2.86
+support,before outage,10,3.07

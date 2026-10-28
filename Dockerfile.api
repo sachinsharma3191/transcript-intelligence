@@ -1,0 +1,20 @@
+# Backend: FastAPI pipeline service. Build from the project root:
+#   docker build -f Dockerfile.api -t transcript-api .
+FROM python:3.14-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    DATASET_DIR=/app/dataset \
+    CORS_ORIGINS=http://localhost:3000 \
+    LOG_LEVEL=INFO
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY src/ ./src/
+COPY dataset/ ./dataset/
+
+EXPOSE 8000
+CMD ["uvicorn", "api:app", "--app-dir", "/app/src", "--host", "0.0.0.0", "--port", "8000", "--no-access-log"]

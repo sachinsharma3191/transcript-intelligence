@@ -1,0 +1,7 @@
+.venv
+.idea
+.git
+.DS_Store
+**/__pycache__
+outputs
+frontend

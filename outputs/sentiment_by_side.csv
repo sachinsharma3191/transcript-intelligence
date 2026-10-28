@@ -1,0 +1,7 @@
+call_type,side,negative,neutral,positive
+external,customer,0.2,0.407,0.393
+external,vendor,0.041,0.528,0.43
+internal,internal,0.474,0.421,0.105
+internal,vendor,0.166,0.631,0.203
+support,customer,0.387,0.521,0.092
+support,vendor,0.08,0.813,0.107
